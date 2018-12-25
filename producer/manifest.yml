@@ -1,0 +1,9 @@
+applications:
+- name: service-discovery-producer
+  path: build/libs/producer.jar
+  buildpack: java_buildpack
+  memory: 1G
+  services:
+  - discovery
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'

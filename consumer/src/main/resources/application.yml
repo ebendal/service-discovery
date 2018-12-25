@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: service-discovery-consumer
+---
+spring:
+  profiles: cloud
+eureka:
+  client:
+    service-url:
+      defaultZone: ${vcap.services.discovery.credentials.url}
+  instance:
+    hostname: ${vcap.application.uris[0]} # No service-to-service available on PWS
+---
+spring:
+  profiles: local
+server:
+  port: 8083
